@@ -2,7 +2,7 @@
 
 Este é um sistema de diário cultural desenvolvido em Java, permitindo aos usuários registrar, gerenciar, pesquisar e avaliar diferentes tipos de mídias culturais como livros, filmes e séries. O sistema oferece tanto uma interface de console quanto uma interface gráfica de usuário (GUI) baseada em JavaFX.
 
-Este projeto foi desenvolvido para a disciplina de MI - Programação, que é baseada na metodologia PBL (Aprendizagem Baseada em Problemas).
+Este projeto foi desenvolvido para a disciplina de MI - Programação, que é baseada na metodologia PBL (Aprendizagem Baseada em Problemas), durante o primeiro semestre de 2025.
 
 ## Funcionalidades
 
