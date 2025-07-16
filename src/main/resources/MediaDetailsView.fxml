@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" spacing="10.0" prefHeight="600.0" prefWidth="700.0"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ViewFX.MediaDetailsController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label fx:id="mediaTitleLabel" text="Media Title" wrapText="true">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
+    <Label fx:id="originalTitleLabel" text="Original Title: N/A" visible="false" managed="false" />
+
+    <GridPane hgap="10.0" vgap="5.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+        </columnConstraints>
+        <children>
+            <Label text="Type:" />
+            <Label fx:id="typeLabel" GridPane.columnIndex="1" text="N/A" />
+            <Label text="Year:" GridPane.rowIndex="1" />
+            <Label fx:id="yearLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" text="N/A" />
+            <Label text="Rating:" GridPane.rowIndex="2" />
+            <Label fx:id="ratingLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" text="N/A" />
+            <Label text="Seen/Read:" GridPane.rowIndex="3" />
+            <Label fx:id="seenLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" text="N/A" />
+
+            <Label text="Genres:" GridPane.columnIndex="2" />
+            <Label fx:id="genresLabel" GridPane.columnIndex="3" text="N/A" wrapText="true" />
+            <Label text="Cast:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="castLabel" GridPane.columnIndex="3" GridPane.rowIndex="1" text="N/A" wrapText="true" />
+            <Label text="Where to Watch:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label fx:id="whereWatchLabel" GridPane.columnIndex="3" GridPane.rowIndex="2" text="N/A" wrapText="true" />
+        </children>
+    </GridPane>
+
+    <VBox fx:id="bookDetailsPane" spacing="5.0" visible="false" managed="false">
+        <Label text="Book Details:" style="-fx-font-weight: bold;" />
+        <Label fx:id="authorLabel" text="Author: N/A" />
+        <Label fx:id="publisherLabel" text="Publisher: N/A" />
+        <Label fx:id="isbnLabel" text="ISBN: N/A" />
+        <Label fx:id="copyLabel" text="Owned Copy: N/A" />
+    </VBox>
+
+    <VBox fx:id="filmDetailsPane" spacing="5.0" visible="false" managed="false">
+        <Label text="Film Details:" style="-fx-font-weight: bold;" />
+        <Label fx:id="directionLabel" text="Direction: N/A" />
+        <Label fx:id="screenplayLabel" text="Screenplay: N/A" />
+        <Label fx:id="runningTimeLabel" text="Duration: N/A" />
+    </VBox>
+
+    <VBox fx:id="showDetailsPane" spacing="5.0" visible="false" managed="false">
+        <Label text="Show Details:" style="-fx-font-weight: bold;" />
+        <Label fx:id="yearEndLabel" text="End Year: N/A" />
+        <Label text="Seasons:" style="-fx-font-weight: bold;" />
+        <ListView fx:id="seasonsListView" VBox.vgrow="ALWAYS" prefHeight="150.0" />
+    </VBox>
+
+
+    <Separator />
+    <Label text="Reviews:" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+    <ListView fx:id="reviewsListView" VBox.vgrow="ALWAYS" />
+    <Label fx:id="noReviewsLabel" text="No reviews available for this media." visible="false" managed="false" />
+
+    <Button text="Close" onAction="#handleClose" />
+</VBox>

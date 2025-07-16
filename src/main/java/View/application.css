@@ -1,0 +1,85 @@
+
+
+/* Styling for the custom tab pane to mimic the segmented control look */
+.tab-pane.floating-tabs .tab-header-area {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-pref-height: 40px; /* Adjust height of tab header */
+}
+
+.tab-pane.floating-tabs .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+.tab-pane.floating-tabs .tab {
+    -fx-background-color: #e9ecef; /* Background for unselected tabs */
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 20px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #495057;
+    -fx-cursor: hand; /* Indicate clickable */
+}
+
+.tab-pane.floating-tabs .tab:selected {
+    -fx-background-color: #ffffff; /* Background for selected tab */
+    -fx-font-weight: bold;
+    -fx-text-fill: #343a40;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-border-insets: -1px; /* To prevent double border on edges */
+    -fx-background-insets: -1px;
+}
+
+/* Remove default tab border and other unwanted styles */
+.tab-pane.floating-tabs .tab-pane:top .tab-header-area .tab:selected .tab-top-right-corner,
+.tab-pane.floating-tabs .tab-pane:top .tab-header-area .tab:selected .tab-top-left-corner {
+    -fx-background-color: transparent;
+}
+
+.tab-pane.floating-tabs .tab-pane:top .tab-header-area .tab .tab-overlay {
+    -fx-background-color: transparent;
+}
+
+/* Align tabs horizontally without gap */
+.tab-pane.floating-tabs .tab-header-area .headers-region {
+    -fx-alignment: center-left;
+    -fx-spacing: 5px; /* Small gap between tabs */
+}
+
+/* Content area below tabs */
+.tab-pane.floating-tabs .tab-content-area {
+    -fx-background-color: transparent; /* Assuming content area will have its own styling */
+    -fx-padding: 0;
+}
+
+/* Style for the toggle switch's thumb */
+.toggle-button .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 16px;
+    -fx-pref-height: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); /* Shadow for the thumb */
+}
+
+/* Position of the thumb when unselected */
+.toggle-button:unselected .thumb {
+    -fx-translate-x: -8px; /* Adjust to move to the left side */
+}
+
+/* Position of the thumb when selected */
+.toggle-button:selected .thumb {
+    -fx-translate-x: 8px; /* Adjust to move to the right side */
+}
+
+/* Remove default toggle button padding and background */
+.toggle-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+}
+
+/* General styling for the main container */
+.root {
+    -fx-background-color: #f5f7fa;
+}
+

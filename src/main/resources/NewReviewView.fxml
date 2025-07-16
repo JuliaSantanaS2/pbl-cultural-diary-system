@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.CheckComboBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Slider?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewFX.NewReviewViewController"
+      spacing="15.0" style="-fx-padding: 20px;">
+
+    <children>
+        <Label text="ADD NEW REVIEW" style="-fx-font-size: 25.0; -fx-font-weight: bold;"/>
+        <HBox spacing="10.0">
+            <children>
+                <ToggleButton text="Book" selected="true">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="mediaTypeToggleGroup" />
+                    </toggleGroup>
+                </ToggleButton>
+                <ToggleButton text="Movie" toggleGroup="$mediaTypeToggleGroup" />
+                <ToggleButton text="Show/Season" toggleGroup="$mediaTypeToggleGroup" />
+            </children>
+        </HBox>
+
+        <StackPane>
+            <children>
+
+                <VBox fx:id="bookFormPane" spacing="10.0" visible="true">
+                    <Label text="Book" />
+                    <ComboBox fx:id="bookNamesComboBox" promptText="Select a book..." />
+
+                    <VBox spacing="5.0">
+                        <children>
+                            <Label text="Your Review"/>
+                            <TextArea fx:id="reviewBookTextArea"
+                                      promptText="Write your review here..."
+                                      wrapText="true"
+                                      prefRowCount="6" />
+                        </children>
+                    </VBox>
+
+                    <HBox spacing="10.0" alignment="CENTER_LEFT">
+                        <children>
+                            <Label text="Rating (1-5):" />
+                            <Slider fx:id="bookRatingSlider"
+                                    min="1"
+                                    max="5"
+                                    value="3"
+                                    majorTickUnit="1"
+                                    minorTickCount="0"
+                                    showTickLabels="true"
+                                    showTickMarks="true"
+                                    snapToTicks="true"
+                                    HBox.hgrow="ALWAYS"/>
+
+                            <Label fx:id="bookRatingValueLabel" text="3" minWidth="20.0" style="-fx-font-weight: bold;"/>
+                        </children>
+                    </HBox>
+                </VBox>
+
+                <VBox fx:id="movieFormPane" spacing="10.0" visible="false">
+                    <children>
+
+                        <Label text="Movie" />
+                        <ComboBox fx:id="movieNamesComboBox" promptText="Select a movie..." />
+
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Your Review"/>
+                                <TextArea fx:id="reviewMovieTextArea"
+                                          promptText="Write your review here..."
+                                          wrapText="true"
+                                          prefRowCount="6" />
+                            </children>
+                        </VBox>
+                        <HBox spacing="10.0" alignment="CENTER_LEFT">
+                            <children>
+                                <Label text="Rating (1-5):" />
+                                <Slider fx:id="movieRatingSlider"
+                                        min="1"
+                                        max="5"
+                                        value="3"
+                                        majorTickUnit="1"
+                                        minorTickCount="0"
+                                        showTickLabels="true"
+                                        showTickMarks="true"
+                                        snapToTicks="true"
+                                        HBox.hgrow="ALWAYS"/>
+
+                                <Label fx:id="movieRatingValueLabel" text="3" minWidth="20.0" style="-fx-font-weight: bold;"/>
+                            </children>
+                        </HBox>
+
+                    </children>
+                </VBox>
+
+                <VBox fx:id="showFormPane" spacing="10.0" visible="false">
+                    <children>
+
+                        <Label text="Show/Season" />
+                        <ComboBox fx:id="showNamesComboBox" promptText="Select a show..." />
+                        <ComboBox fx:id="seasonNamesComboBox" promptText="Select a season..." />
+
+                        <Label text="Please note: Reviews for shows are submitted per season. Ensure the desired show has registered seasons before attempting to submit a review."
+                               wrapText="true"
+                               style="-fx-font-size: 11px; -fx-text-fill: #6c757d; -fx-padding: 0 0 5px 0;" />
+
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Your Review"/>
+                                <TextArea fx:id="reviewShowTextArea"
+                                          promptText="Write your review here..."
+                                          wrapText="true"
+                                          prefRowCount="6" />
+                            </children>
+                        </VBox>
+
+
+                        <HBox spacing="10.0" alignment="CENTER_LEFT">
+                            <children>
+                                <Label text="Rating (1-5):" />
+                                <Slider fx:id="showRatingSlider"
+                                        min="1"
+                                        max="5"
+                                        value="3"
+                                        majorTickUnit="1"
+                                        minorTickCount="0"
+                                        showTickLabels="true"
+                                        showTickMarks="true"
+                                        snapToTicks="true"
+                                        HBox.hgrow="ALWAYS"/>
+
+                                <Label fx:id="showRatingValueLabel" text="3" minWidth="20.0" style="-fx-font-weight: bold;"/>
+                            </children>
+                        </HBox>
+
+                    </children>
+                </VBox>
+
+
+            </children>
+        </StackPane>
+
+        <HBox alignment="CENTER_RIGHT">
+            <children>
+                <Button text="Save Review" onAction="#saveReview" prefHeight="30.0" prefWidth="120.0" style="-fx-font-weight: bold;"/>
+            </children>
+        </HBox>
+
+    </children>
+</VBox>

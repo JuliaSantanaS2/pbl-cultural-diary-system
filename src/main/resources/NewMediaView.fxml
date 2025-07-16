@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.CheckComboBox?>
+<?import javafx.scene.control.DatePicker?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewFX.NewMediaViewController"
+      spacing="15.0" style="-fx-padding: 20px;">
+
+    <children>
+        <Label text="ADD NEW MEDIA" style="-fx-font-size: 25.0; -fx-font-weight: bold;"/>
+        <HBox spacing="10.0">
+            <children>
+                <ToggleButton text="Book" selected="true">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="mediaTypeToggleGroup" />
+                    </toggleGroup>
+                </ToggleButton>
+                <ToggleButton text="Movie" toggleGroup="$mediaTypeToggleGroup" />
+                <ToggleButton text="Show" toggleGroup="$mediaTypeToggleGroup" />
+                <ToggleButton text="Season" toggleGroup="$mediaTypeToggleGroup" />
+            </children>
+        </HBox>
+
+        <StackPane>
+            <children>
+
+                <VBox fx:id="bookFormPane" spacing="10.0" visible="true">
+                    <children>
+                        <TextField fx:id="bookTitleField" promptText="Title" />
+                        <TextField fx:id="bookOriginalTitleField" promptText="Original Title" />
+                        <TextField fx:id="bookAuthorField" promptText="Author" />
+                        <TextField fx:id="bookPublisherField" promptText="Publisher" />
+                        <TextField fx:id="bookIsbnField" promptText="ISBN" />
+                        <TextField fx:id="bookReleaseYearField" promptText="Release Year" />
+                        <Label text="Genre" />
+                        <CheckComboBox fx:id="bookGenreCheckComboBox" prefWidth="Infinity"/>
+                        <CheckBox fx:id="bookSeenCheckBox" text="Seen" />
+                        <CheckBox fx:id="bookPhysicalCopyCheckBox" text="Physical Copy" />
+                    </children>
+                </VBox>
+
+                <VBox fx:id="movieFormPane" spacing="10.0" visible="false">
+                    <children>
+                        <TextField fx:id="movieTitleField" promptText="Title" />
+                        <TextField fx:id="movieOriginalTitleField" promptText="Original Title" />
+
+                        <HBox spacing="10.0">
+                            <children>
+                                <TextField fx:id="movieDirectionField" promptText="Direction" HBox.hgrow="ALWAYS"/>
+                                <TextField fx:id="movieScreenplayField" promptText="Screenplay" HBox.hgrow="ALWAYS"/>
+                            </children>
+                        </HBox>
+
+                        <HBox spacing="10.0">
+                            <children>
+                                <TextField fx:id="movieReleaseYearField" promptText="Release Year" HBox.hgrow="ALWAYS"/>
+                                <TextField fx:id="movieRunningtimeField" promptText="Running Time" HBox.hgrow="ALWAYS"/>
+                            </children>
+                        </HBox>
+
+                        <HBox spacing="25.0">
+                            <children>
+                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                    <children>
+
+                                        <Label text="Cast" />
+                                        <HBox>
+                                            <children>
+                                                <TextField fx:id="movieCastInputField" promptText="Enter actor's name" HBox.hgrow="ALWAYS" />
+                                                <Button onAction="#movieAddCastMember" text="Add" />
+                                            </children>
+                                        </HBox>
+                                        <ListView fx:id="movieCastListView" prefHeight="100.0" VBox.vgrow="ALWAYS" />
+                                        <Button maxWidth="1.7976931348623157E308" onAction="#movieRemoveCastMember" text="Remove Selected Actor" />
+                                    </children>
+                                </VBox>
+
+                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="Where to Watch?" />
+                                        <HBox>
+                                            <children>
+                                                <TextField fx:id="moviePlatformInputField" promptText="Enter platform" HBox.hgrow="ALWAYS" />
+                                                <Button onAction="#movieAddPlatform" text="Add" />
+                                            </children>
+                                        </HBox>
+                                        <ListView fx:id="moviePlatformListView" prefHeight="100.0" VBox.vgrow="ALWAYS" />
+                                        <Button maxWidth="1.7976931348623157E308" onAction="#movieRemovePlatform" text="Remove Platform" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+
+
+                        <Label text="Genres" />
+                        <CheckComboBox fx:id="movieGenreCheckComboBox" prefWidth="Infinity"/>
+                        <CheckBox fx:id="movieSeenCheckBox" text="Already watched this film" />
+                    </children>
+                </VBox>
+
+                <VBox fx:id="showFormPane" spacing="10.0" visible="false">
+                    <children>
+                        <TextField fx:id="showTitleField" promptText="Title" />
+                        <TextField fx:id="showOriginalTitleField" promptText="Original Title" />
+
+                        <HBox spacing="25.0">
+                            <children>
+                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                    <children>
+
+                                        <Label text="Cast" />
+                                        <HBox>
+                                            <children>
+                                                <TextField fx:id="showCastInputField" promptText="Enter actor's name" HBox.hgrow="ALWAYS" />
+                                                <Button onAction="#showAddCastMember" text="Add" />
+                                            </children>
+                                        </HBox>
+                                        <ListView fx:id="showCastListView" prefHeight="100.0" VBox.vgrow="ALWAYS" />
+                                        <Button maxWidth="1.7976931348623157E308" onAction="#showRemoveCastMember" text="Remove Selected Actor" />
+                                    </children>
+                                </VBox>
+
+                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="Where to Watch?" />
+                                        <HBox>
+                                            <children>
+                                                <TextField fx:id="showPlatformInputField" promptText="Enter platform" HBox.hgrow="ALWAYS" />
+                                                <Button onAction="#showAddPlatform" text="Add" />
+                                            </children>
+                                        </HBox>
+                                        <ListView fx:id="showPlatformListView" prefHeight="100.0" VBox.vgrow="ALWAYS" />
+                                        <Button maxWidth="1.7976931348623157E308" onAction="#showRemovePlatform" text="Remove Platform" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <HBox spacing="10.0">
+                            <children>
+                                <TextField fx:id="showReleaseYearField" promptText="Release Year" HBox.hgrow="ALWAYS"/>
+                                <TextField fx:id="showYearEndField" promptText="Year End" HBox.hgrow="ALWAYS"/>
+                            </children>
+                        </HBox>
+
+                        <Label text="Genre" />
+                        <CheckComboBox fx:id="showGenreCheckComboBox" prefWidth="Infinity"/>
+                        <CheckBox fx:id="showSeenCheckBox" text="Already watched this show" />
+                    </children>
+                </VBox>
+
+                <VBox fx:id="seasonFormPane" spacing="10.0" visible="false">
+                    <children>
+                        <Label text="Select Show" />
+                        <ComboBox fx:id="seasonShowComboBox" promptText="Select a show..." />
+
+                        <TextField fx:id="seasonSeasonNumberTitleField" promptText="Season Number" />
+                        <TextField fx:id="seasonEpisodeCountTitleField" promptText="Episode Count" />
+                        <DatePicker fx:id="seasonReleaseDatePicker" promptText="Select release date" maxWidth="Infinity"/>
+                    </children>
+                </VBox>
+
+
+            </children>
+        </StackPane>
+
+        <HBox alignment="CENTER_RIGHT">
+            <children>
+                <Button text="Save Media" onAction="#saveMedia" prefHeight="30.0" prefWidth="120.0" style="-fx-font-weight: bold;"/>
+            </children>
+        </HBox>
+
+    </children>
+</VBox>

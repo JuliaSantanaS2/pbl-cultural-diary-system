@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewFX.GenreController"
+      spacing="15.0" style="-fx-padding: 20px;">
+
+    <children>
+
+        <Label text="MANAGE GENRES" style="-fx-font-size: 25.0; -fx-font-weight: bold;"/>
+
+        <VBox spacing="5.0">
+            <children>
+                <Label text="Add new Genre"/>
+                <HBox spacing="10.0">
+                    <TextField fx:id="genreTitleField" promptText="Genre Name" HBox.hgrow="ALWAYS"/>
+                    <Button text="To add" onAction="#addGenre"/>
+                </HBox>
+            </children>
+        </VBox>
+
+        <VBox spacing="5.0">
+            <children>
+                <Label text="Existing Genres"/>
+                <ListView fx:id="genreListView" prefHeight="400.0"/>
+            </children>
+        </VBox>
+
+    </children> </VBox>
